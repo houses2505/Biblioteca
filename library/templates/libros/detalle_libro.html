@@ -1,0 +1,17 @@
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">{{ object.nombre_libro }}</h4>
+		</div>
+		<div class="modal-body">
+			<h3>Referencia: {{ object.referencia }}</h3>
+			<h3>Autor: {{ object.nombre_autor }}</h3>
+			<h3>Descripción: {{ object.descripcion }}</h3>
+			<h3>ISBN: {{ object.isbn }}</h3>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		</div>
+	</div>
+</div>

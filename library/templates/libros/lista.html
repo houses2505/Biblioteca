@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="bg-faded p-4 my-4">
+		<hr class="divider">
+		<h2 class="text-center text-lg text-uppercase my-0">Buscar 
+			<strong>Libros</strong>
+		</h2>
+		<a href="{% url 'crear_libro' %}" class="btn btn-primary open-modal" data-toggle="modal" data-target="#Modal">Agregar libro</a>
+		<hr class="divider">
+		<form action="{% url 'lista_libro' %}" method="GET" style="margin-top: 15px">
+			<div class="row">
+				<div class="form-group col-md-12">
+					<label>{{ forms.label }}</label>
+					{{ forms }}
+				</div>
+			</div>
+		</form>
+		<form action="{% url 'lista_libro' %}" method="GET">
+			<div class="row">
+				<div class="form-group col-lg-4">
+					<label class="text-heading">Inserte el titulo del libro que desea Buscar</label>
+					<div class="row">
+						<div class="col-md-8">
+							<input type="text" name="word" class="form-control">
+						</div>
+						<div class="text-center col-md-4">
+							<button type="submit" class="btn btn-success">Buscar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="row">
+			{% for libro in object_list %}
+				<a href="{% url 'libro_detalle' libro.pk %}" class="col-md-3 open-modal" data-toggle="modal" data-target="#Modal">
+					<h2>{{ libro.nombre_libro }}</h2>
+					<small>{{ libro.nombre_autor }}</small>
+				</a>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
